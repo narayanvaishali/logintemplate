@@ -32,6 +32,9 @@ export function saveUser(user) {
     .then(() => user);
 }
 */
+export function auth(){
+  return true;
+}
 export function isAuthenticated() {
   /*if (localStorage.token) {
     //@TODO: Use token similar to JWT so that user information can be displayed
