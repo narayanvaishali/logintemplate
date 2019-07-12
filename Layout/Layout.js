@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Sidebar from './Sidebar';
 import styles from './styles';
 
-
 const Layout = ({classes, drawer, title, children}) => (
   <div className={classes.root}>
     <AppBar position="absolute" className={classes.appBar}>
@@ -32,7 +31,7 @@ const Layout = ({classes, drawer, title, children}) => (
 );
 
 Layout.defaultProps = {
-  title: 'Dev Rota',
+  title: '',
   drawer: true,
 };
 
