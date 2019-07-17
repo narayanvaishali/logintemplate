@@ -23,70 +23,49 @@ import {
   Nav
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-/*
+
 var PageLinks = [
   {
-    path: '/dashboard',
+    path: '/',
     name: 'Dashboard',
-    component: Dashboard
-  },,
+    comp: Dashboard
+  },
   {
     path: '/roles',
     name: 'Roles',
-    component: Roles
+    comp: Roles
   },
   {
     path: '/logout',
     name: 'Logout',
-    component: Logout
+    comp: Logout
   },
-]*/
+]
 const Sidebar = ({ classes }) => (
   <Drawer variant="permanent" classes={{ paper: classes.drawerPaper}}>
      
      <div className={classes.toolbar} />
-          <List>
+          {PageLinks.map(item => (
+
+            <List>
               <ListItem
                 button
-                component={Link}
-                to="/"
+                component={item.comp}
+                to={item.path}
               >
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Dashboard" />
+                <ListItemText primary={item.name} />
               </ListItem>
             </List>
-            <List>
-              <ListItem
-                button
-                component={Link}
-                to="/roles"
-              >
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Roles" />
-              </ListItem>
-            </List>            
-            <List>
-              <ListItem
-                button
-                component={Link}
-                to="/logout"
-              >
-                <ListItemIcon>
-                  <ReportIcon />
-                </ListItemIcon>
-                <ListItemText primary="Logout" />
-              </ListItem>
-            </List>
-  </Drawer>
+        ))}
+    </Drawer>
 );
 
 Sidebar.propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line
-  routerHistory: PropTypes.object.isRequired, // eslint-disable-line
+  //routerHistory: PropTypes.object.isRequired, // eslint-disable-line
 }
 
 export default withStyles(styles)(Sidebar);
