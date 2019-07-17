@@ -47,3 +47,43 @@ const App = () => (
 
 
 export default App;
+
+/*
+
+<List>
+              <ListItem
+                button
+                component={Link}
+                to="/"
+              >
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+            </List>
+            <List>
+              <ListItem
+                button
+                component={Link}
+                to="/roles"
+              >
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Roles" />
+              </ListItem>
+            </List>            
+            <List>
+              <ListItem
+                button
+                component={Link}
+                to="/logout"
+              >
+                <ListItemIcon>
+                  <ReportIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+              </ListItem>
+            </List>
+            */
