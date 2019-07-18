@@ -16,8 +16,8 @@ const SecureRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-SecureRoute.propTypes = {
+/*SecureRoute.propTypes = {
   component: PropTypes.func.isRequired,
-};
+};*/
 
 export default SecureRoute;

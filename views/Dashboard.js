@@ -9,7 +9,7 @@ class Dashboard extends Component  {
 render () {
 
     return(
-       <Layout title="Dashboard" drawer="true">
+       <Layout title="Dashboard" drawer='true'>
         <Paper>
                 <div> Dashboard </div>
         </Paper>

@@ -6,11 +6,6 @@ import Dashboard from '../../views/Dashboard';
 import Logout from '../../views/Logout';
 import Login from '../../views/Login';
 import Roles from '../../views/Roles';
-import { NavLink } from 'react-router-dom';
-
-import {
-  Nav
-} from 'reactstrap';
 
 var ThemeRoutes = [
   {

@@ -9,7 +9,7 @@ class Roles extends Component  {
   render () {
 
     return(
-       <Layout title="Roles" drawer="true">
+       <Layout title="Roles" drawer = "true">
         <Paper>
                 <div>Roles</div>
         </Paper>

@@ -17,7 +17,7 @@ const Layout = ({classes, drawer, title, children}) => (
         </Typography>
       </Toolbar>
     </AppBar>
-     {drawer ? <Sidebar /> : null}
+     {drawer == "true" ? <Sidebar /> : null}
     <main
       className={classNames({
         [classes.content]: drawer,
@@ -32,12 +32,12 @@ const Layout = ({classes, drawer, title, children}) => (
 
 Layout.defaultProps = {
   title: '',
-  drawer: true,
+  drawer: "true",
 };
 
 Layout.propTypes = {
   title: PropTypes.string,
-  drawer: PropTypes.bool,
+  drawer: PropTypes.string,
   classes: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
 };
