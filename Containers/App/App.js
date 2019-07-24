@@ -31,8 +31,8 @@ const App = () => (
       <Router>
 
           <Route exact path="/logout" component={Logout} />
-          <Route exact path="/login" component={Login} />
-          <SecureRoute exact path="/" component={Dashboard} />
+          <Route exact path="/" component={Login} />
+          <SecureRoute exact path="/dashboard" component={Dashboard} />
           <SecureRoute exact path="/roles" component={Roles} />
 
       </Router>

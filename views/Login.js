@@ -37,7 +37,7 @@ class Login extends Component {
     const { email, password } = this.state;
     const { history } = this.props;
 
-    this.props.history.push('/dashboard');
+    this.props.history.push("/dashboard");
    /* auth().setPersistence(LOCAL)
       .then(() => auth().signInWithEmailAndPassword(email, password))
       .then(() => {
