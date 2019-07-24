@@ -26,7 +26,7 @@ import Roles from '../views/Roles';
 
 var PageLinks = [
   {
-    path: '/',
+    path: '/dashboard',
     name: 'Dashboard',
     icon : InboxIcon,
     comp: Dashboard
@@ -42,6 +42,12 @@ var PageLinks = [
     name: 'Logout',
     icon : SendIcon,
     comp: Logout
+  },
+    {
+    path: '/',
+    name: 'Login',
+    icon : SendIcon,
+    comp: Login
   },
 ]
 

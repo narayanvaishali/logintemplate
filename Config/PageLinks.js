@@ -9,7 +9,7 @@ import Roles from '../views/Roles';
 
 export const PageLinks = [
   {
-    path: '/',
+    path: '/dashboard',
     name: 'Dashboard',
     //icon : InboxIcon,
     comp: Dashboard
@@ -26,4 +26,10 @@ export const PageLinks = [
    // icon : SendIcon,
     comp: Logout
   },
+    {
+    path: '/',
+    name: 'Login',
+   // icon : SendIcon,
+    comp: Login
+  }
 ];
