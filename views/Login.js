@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import ErrorIcon from '@material-ui/icons/Error';
 import { BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom'
+import { AuthConsumer } from '../Components/AuthContext';
 
 //import { auth, LOCAL } from '../../db';
 
@@ -51,9 +52,13 @@ class Login extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    console.log (this.props);
+    
+    const { classes, ...rest } = this.props;
     const { email, password, message } = this.state;
     return (
+       <AuthConsumer>
+       {({ isAuth, login, logout }) => (
       <Layout drawer={false}>
         <div className="container">
           <Grid container justify="center">
@@ -107,6 +112,8 @@ class Login extends Component {
           </Grid>
         </div>
       </Layout>
+        )}
+       </AuthConsumer>
     );
   }
 }
