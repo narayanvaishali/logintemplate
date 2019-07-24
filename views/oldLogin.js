@@ -8,12 +8,57 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import ErrorIcon from '@material-ui/icons/Error';
 import { BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom'
 import { AuthConsumer } from '../Components/AuthContext';
+
+//import { auth, LOCAL } from '../../db';
+
 import Layout from '../Layout';
 import styles from './styles';
 
-const Login = () => (
-<AuthConsumer>
-{({ isAuth, login, logout }) => (
+class oldLogin extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: 'testuser@hotmail.com',
+      password: 'password',
+      message: undefined,
+    };
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleLogin(e) {
+    e.preventDefault();
+    const { email, password } = this.state;
+    const { history } = this.props;
+
+    this.props.history.push("/dashboard");
+   /* auth().setPersistence(LOCAL)
+      .then(() => auth().signInWithEmailAndPassword(email, password))
+      .then(() => {
+        history.push('/');
+      })
+      .catch((err) => {
+        this.setState({
+          message: err.message,
+        });
+      });*/
+  }
+
+  render() {
+    console.log (this.props.isAuth);
+    
+    const { classes, ...rest } = this.props;
+    const { email, password, message } = this.state;
+    return (
+       <AuthConsumer>
+       {({ isAuth, login, logout }) => (
       <Layout drawer="false">
         <div className="container">
           <Grid container justify="center">
@@ -67,8 +112,34 @@ const Login = () => (
           </Grid>
         </div>
       </Layout>
-   )}
-</AuthConsumer>
-)
+        )}
+       </AuthConsumer>
+    );
+  }
+}
 
-export default withStyles(styles)(Login);
+Login.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line
+  history: PropTypes.object.isRequired, // eslint-disable-line
+};
+
+export default withStyles(styles)(oldLogin);
+
+
+
+/*import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './styles';
+import Layout from '../Layout';
+import Paper from '@material-ui/core/Paper';
+
+class Login extends Component  {
+render () {
+
+    return(
+        <div> Hello user </div>
+    )
+  }
+}
+export default withStyles(styles)(Login);*/

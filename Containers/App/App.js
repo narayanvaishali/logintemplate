@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SecureRoute from '../../Components/SecureRoute';
+import ProtectedRoute from '../../Components/ProtectedRoute';
 // Views
 import Dashboard from '../../views/Dashboard';
 import Logout from '../../views/Logout';
@@ -33,8 +34,8 @@ const App = () => (
       <AuthProvider>
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/" component={Login} />
-          <SecureRoute exact path="/dashboard" component={Dashboard} />
-          <SecureRoute exact path="/roles" component={Roles} />
+          <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+          <ProtectedRoute exact path="/roles" component={Roles} />
         </AuthProvider>
       </Router>
     

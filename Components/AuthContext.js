@@ -12,6 +12,7 @@ class AuthProvider extends React.Component {
   }
 
   login() {
+    //console.log ("login clicked");
     setTimeout(() => this.setState({ isAuth: true }), 1000)
   }
 
