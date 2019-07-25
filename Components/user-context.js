@@ -7,16 +7,17 @@ const UserContext = createContext({
   login_click: () => {},
   updateEmail : () => {},
   updatePwd : () => {},
-  //logout_click: () => {},
+  logout_click: () => {},
 });
 
 export class UserProvider extends React.Component {
-  login_click = (newemail, newpwd, isAuth )=> {
-    this.setState({ email: newemail, pwd : newpwd, isAuth : true });
+  login_click = ()=> {
+    console.log("login clik "+ this.state.email + " " +  this.state.pwd);
+    this.setState({isAuth : true });
   };
 
-  logout_click = (newemail, newpwd, isAuth )=> {
-    this.setState({ email: newemail, pwd : newpwd, isAuth : false });
+  logout_click = ()=> {
+    this.setState({ isAuth : false });
   };
 
  updateEmail = (newemail )=> {
@@ -33,8 +34,7 @@ export class UserProvider extends React.Component {
     login_click: this.login_click,
     updateEmail: this.updateEmail,
    updatePwd: this.updatePwd,
-
-    //logout_click : logout_click
+   logout_click : this.logout_click
   };
 
   render() {

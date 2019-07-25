@@ -18,23 +18,31 @@ export default function Login() {
       {({ email, pwd, isAuth, updateEmail, updatePwd, login_click }) => (
         <div>
           <h2>Login</h2>
-          <label htmlFor="email">Email: </label>
-          <input
-            id="email"
-            type="text"
-            onChange={event => {
-              updateEmail(event.target.value);
-            }}
-           />
-          <label htmlFor="pwd">Password: </label>
-          <input
-            id="pwd"
-            type="password"
-            onChange={event => {
-              updatePwd(event.target.value);
-            }}
-          />
-           <Button variant="outlined" color="secondary"  type="submit"  onClick={login_click}>
+           <TextField
+                  id="outlined-email-input"
+                  label="Email"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  margin="normal"
+                  fullWidth
+                onChange={event => {
+                  updateEmail(event.target.value);
+                }}
+                />
+                <TextField
+                  id="pwd"
+                  label="pwd"
+                  type="password"
+                  name="pwd"
+                  autoComplete="password"
+                  margin="normal"
+                  fullWidth
+                  onChange={event => {
+                    updatePwd(event.target.value);
+                  }}
+                />
+                <Button variant="outlined" color="secondary"  type="submit" onClick={login_click}>
                   Login
                 </Button>
         </div>
