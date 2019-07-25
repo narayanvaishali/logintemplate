@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom
 import { AuthConsumer } from '../Components/AuthContext';
 import Layout from '../Layout';
 import styles from './styles';
-
+/*
 const Login = () => (
 <AuthConsumer>
 {({ isAuth, login, logout }) => (
@@ -70,5 +70,14 @@ const Login = () => (
    )}
 </AuthConsumer>
 )
+*/
 
+class Login extends Component  {
+render () {
+
+    return(
+        <div> Hello user </div>
+    )
+  }
+}
 export default withStyles(styles)(Login);
