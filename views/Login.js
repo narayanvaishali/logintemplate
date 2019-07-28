@@ -6,16 +6,16 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import ErrorIcon from '@material-ui/icons/Error';
-import { BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Route,Switch, Redirect, withRouter } from 'react-router-dom'
 import { AuthConsumer } from '../Components/AuthContext';
 import Layout from '../Layout';
 import styles from './styles';
 import { UserConsumer } from '../Components/user-context';
 
-export default function Login() {
+function Login({history}) {
   return (
     <UserConsumer>
-      {({ email, pwd, isAuth, updateEmail, updatePwd, login_click }) => (
+      {({ email, pwd, isAuth, h, updateEmail, updatePwd, login_click }) => (
         <div>
           <h2>Login</h2>
            <TextField
@@ -42,7 +42,9 @@ export default function Login() {
                     updatePwd(event.target.value);
                   }}
                 />
-                <Button variant="outlined" color="secondary"  type="submit" onClick={login_click}>
+                <Button variant="outlined" color="secondary"  type="submit" onClick={event => {
+                   login_click(event.target.value, history);
+                  }}>
                   Login
                 </Button>
         </div>
@@ -50,7 +52,7 @@ export default function Login() {
     </UserConsumer>
   );
 }
-
+export default withRouter(Login);
 /*
 class Login extends Component  {
 render () {

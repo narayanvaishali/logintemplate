@@ -33,10 +33,12 @@ const App = () => (
    
       <Router>
       <UserProvider>
+       <Switch>
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/roles" component={Roles} />
+          </Switch>
         </UserProvider>
       </Router>
     

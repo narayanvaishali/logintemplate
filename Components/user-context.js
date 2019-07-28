@@ -1,4 +1,6 @@
 import React, { createContext } from 'react';
+//import history from 'browser-history';
+import { browserHistory } from 'react-router';
 
 const UserContext = createContext({
   email: '',
@@ -11,9 +13,15 @@ const UserContext = createContext({
 });
 
 export class UserProvider extends React.Component {
-  login_click = ()=> {
-    console.log("login clik "+ this.state.email + " " +  this.state.pwd);
+  constructor(props){
+    super(props);
+  }
+     
+  login_click = (e, history)=> {
+   // console.log(history);
+   /// console.log("login clik "+ this.state.email + " " +  this.state.pwd);
     this.setState({isAuth : true });
+    history.push(`/dashboard`);
   };
 
   logout_click = ()=> {
@@ -31,10 +39,11 @@ export class UserProvider extends React.Component {
   state = {
     email: 'email',
     pwd : 'pwd',
+    h : browserHistory,
     login_click: this.login_click,
     updateEmail: this.updateEmail,
-   updatePwd: this.updatePwd,
-   logout_click : this.logout_click
+    updatePwd: this.updatePwd,
+    logout_click : this.logout_click
   };
 
   render() {
