@@ -2,31 +2,9 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SecureRoute from '../../Components/SecureRoute';
 import ProtectedRoute from '../../Components/ProtectedRoute';
-// Views
-import Dashboard from '../../views/Dashboard';
-import Logout from '../../views/Logout';
-import Login from '../../views/Login';
-import Roles from '../../views/Roles';
 import { AuthProvider } from '../../Components/AuthContext';
 import { UserProvider } from '../../Components/user-context';
-
-var ThemeRoutes = [
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard
-  },
-  {
-    path: '/views/roles',
-    name: 'Roles',
-    component: Roles
-  },
-  {
-    path: '/views/logout',
-    name: 'Logout',
-    component: Logout
-  },
-]
+import {PageLinks}from '../../Config/PageLinks';
 
 const App = () => (
    <Fragment>
@@ -34,10 +12,9 @@ const App = () => (
       <Router>
       <UserProvider>
        <Switch>
-          <Route exact path="/logout" component={Logout} />
-          <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/roles" component={Roles} />
+        {PageLinks.map(item => (
+            <Route exact path={item.path} component={item.comp} />         
+        ))}
           </Switch>
         </UserProvider>
       </Router>
