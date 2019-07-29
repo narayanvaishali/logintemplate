@@ -23,33 +23,7 @@ import Dashboard from '../views/Dashboard';
 import Logout from '../views/Logout';
 import Login from '../views/Login';
 import Roles from '../views/Roles';
-
-var PageLinks = [
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    icon : InboxIcon,
-    comp: Dashboard
-  },
-  {
-    path: '/roles',
-    name: 'Roles',
-    icon : StarIcon,
-    comp: Roles
-  },
-  {
-    path: '/logout',
-    name: 'Logout',
-    icon : SendIcon,
-    comp: Logout
-  },
-    {
-    path: '/',
-    name: 'Login',
-    icon : SendIcon,
-    comp: Login
-  },
-]
+import {PageLinks}from '../Config/PageLinks';
 
 const ItemIcon = (icon) => (
    <ListItemIcon>{icon.icon}</ListItemIcon>
