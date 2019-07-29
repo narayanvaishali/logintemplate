@@ -38,8 +38,7 @@ const Sidebar = ({ classes }) => (
               <ListItem                
                 component={Link}
                 to={item.path}
-              >
-           
+              >           
                 <ListItemText primary={item.name} />
               </ListItem>
             </List>

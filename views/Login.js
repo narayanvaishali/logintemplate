@@ -52,6 +52,11 @@ function Login({history}) {
     </UserConsumer>
   );
 }
+/*Login.propTypes = {
+  email: PropTypes.string.isRequired,
+  pwd: PropTypes.string.isRequired,
+}
+*/
 export default withRouter(Login);
 /*
 class Login extends Component  {

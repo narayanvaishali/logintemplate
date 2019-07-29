@@ -6,6 +6,7 @@ const UserContext = createContext({
   email: '',
   pwd : '',
   isAuth : '',
+  message : '',
   login_click: () => {},
   updateEmail : () => {},
   updatePwd : () => {},
@@ -19,13 +20,16 @@ export class UserProvider extends React.Component {
      
   login_click = (e, history)=> {
    // console.log(history);
-   /// console.log("login clik "+ this.state.email + " " +  this.state.pwd);
+    console.log("login clik "+ this.state.email + " " +  this.state.pwd);
+   if (this.state.email != '' && this.state.email != ''){
     this.setState({isAuth : true });
     history.push(`/dashboard`);
+   }
   };
 
   logout_click = ()=> {
     this.setState({ isAuth : false });
+    history.replace(`/`);
   };
 
  updateEmail = (newemail )=> {
@@ -39,7 +43,6 @@ export class UserProvider extends React.Component {
   state = {
     email: 'email',
     pwd : 'pwd',
-    h : browserHistory,
     login_click: this.login_click,
     updateEmail: this.updateEmail,
     updatePwd: this.updatePwd,
