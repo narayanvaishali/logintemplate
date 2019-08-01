@@ -11,46 +11,51 @@ import { AuthConsumer } from '../Components/AuthContext';
 import Layout from '../Layout';
 import styles from './styles';
 import { UserConsumer } from '../Components/user-context';
+import { useForm } from "../Components/FormHook";
 
-function Login({history}) {
+const Login = ({history}) => {
+const onLogin = () => {
+    console.log(
+      `User Created!   Email: ${inputs.email} ${inputs.pwd}`
+    );
+    history.push(`/dashboard`);
+  };
+
+const { inputs, handleInputChange, handleSubmit } = useForm(onLogin);
+
   return (
-    <UserConsumer>
-      {({ email, pwd, isAuth, h, updateEmail, updatePwd, login_click }) => (
-        <div>
-          <h2>Login</h2>
-           <TextField
-                  id="outlined-email-input"
-                  label="Email"
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  margin="normal"
-                  fullWidth
-                onChange={event => {
-                  updateEmail(event.target.value);
-                }}
-                />
-                <TextField
-                  id="pwd"
-                  label="pwd"
-                  type="password"
-                  name="pwd"
-                  autoComplete="password"
-                  margin="normal"
-                  fullWidth
-                  onChange={event => {
-                    updatePwd(event.target.value);
-                  }}
-                />
-                <Button variant="outlined" color="secondary"  type="submit" onClick={event => {
-                   login_click(event.target.value, history);
-                  }}>
-                  Login
-                </Button>
-        </div>
-      )}
-    </UserConsumer>
-  );
+       <form onSubmit={handleSubmit}>
+          <div>
+            <h2>Login</h2>
+            <TextField
+                    id="outlined-email-input"
+                    label="Email"
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    margin="normal"
+                    fullWidth
+                    onChange={handleInputChange}
+                    required 
+                    
+                  />
+                  <TextField
+                    id="pwd"
+                    label="pwd"
+                    type="password"
+                    name="pwd"
+                    autoComplete="password"
+                    margin="normal"
+                    fullWidth
+                    onChange={handleInputChange}
+                    required 
+                  />
+                  <Button variant="outlined" color="secondary"  type="submit" >
+                    Login
+                  </Button>
+          </div>
+        </form>
+      )
 }
 /*Login.propTypes = {
   email: PropTypes.string.isRequired,
