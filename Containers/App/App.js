@@ -2,21 +2,22 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SecureRoute from '../../Components/SecureRoute';
 import ProtectedRoute from '../../Components/ProtectedRoute';
-import { AuthProvider } from '../../Components/AuthContext';
-import { UserProvider } from '../../Components/user-context';
+//import { AuthProvider } from '../../Components/AuthContext';
+//import { UserProvider } from '../../Components/user-context';
 import {PageLinks}from '../../Config/PageLinks';
+import { UserContextProvider } from "../../Components/user-context";
 
 const App = () => (
    <Fragment>
    
       <Router>
-      <UserProvider>
+      <UserContextProvider>
        <Switch>
         {PageLinks.map(item => (
             <Route exact path={item.path} component={item.comp} />         
         ))}
           </Switch>
-        </UserProvider>
+        </UserContextProvider>
       </Router>
     
   </Fragment>

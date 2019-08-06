@@ -1,8 +1,22 @@
-import React, { createContext } from 'react';
+import React, { useState } from 'react';
+
+const UserContext = React.createContext([{}, () => {}]);
+
+const UserContextProvider = (props) => {
+  const [state, setState] = useState({});
+  return (
+    <UserContext.Provider value={[state, setState]}>
+      {props.children}
+    </UserContext.Provider>
+  );
+}
+export { UserContext, UserContextProvider };
+
+/*import React, { createContext } from 'react';
 //import history from 'browser-history';
 import { browserHistory } from 'react-router';
 
-const UserContext = createContext({
+*const UserContext = createContext({
   email: '',
   pwd : '',
   isAuth : '',
@@ -57,5 +71,5 @@ export class UserProvider extends React.Component {
     );
   }
 }
-
 export const UserConsumer = UserContext.Consumer;
+*/
